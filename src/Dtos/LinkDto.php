@@ -1,15 +1,21 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: oalvarado
- * Date: 23/09/17
- * Time: 16:10
- */
-
 namespace CodeandoMexico\Sismomx\Core\Dtos;
 
-
+/**
+ * Class LinkDto
+ * @package CodeandoMexico\Sismomx\Core\Dtos
+ */
 class LinkDto
 {
 
+    /**
+     * @var string
+     */
+    public $descriptionm,
+
+
+    /**
+     * @var string
+     */
+    public $url;
 }
