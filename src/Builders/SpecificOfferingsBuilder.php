@@ -1,7 +1,7 @@
 <?php
 namespace CodeandoMexico\Sismomx\Core\Builders;
 
-use CodeandoMexico\Sismomx\Core\Abstracts\BuilderAbstract;
+use CodeandoMexico\Sismomx\Core\Abstracts\Builders\BuilderAbstract;
 use CodeandoMexico\Sismomx\Core\Dictionaries\GoogleSheetsApiV4\SpecificOfferingsDictionary;
 use CodeandoMexico\Sismomx\Core\Dtos\SpecificOfferingsDto;
 use CodeandoMexico\Sismomx\Core\Interfaces\Builders\SpecificOfferingsBuilderInterface;
@@ -16,6 +16,16 @@ class SpecificOfferingsBuilder extends BuilderAbstract implements SpecificOfferi
      * @var SpecificOfferingsDto
      */
     protected $builtable;
+
+    /**
+     * SpecificOfferingsBuilder constructor.
+     * @Inject
+     * @param SpecificOfferingsDto $dto
+     */
+    public function __construct(SpecificOfferingsDto $dto)
+    {
+        $this->builtable = $dto;
+    }
 
     /**
      * @inheritdoc

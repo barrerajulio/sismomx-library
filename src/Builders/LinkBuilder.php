@@ -1,7 +1,7 @@
 <?php
 namespace CodeandoMexico\Sismomx\Core\Builders;
 
-use CodeandoMexico\Sismomx\Core\Abstracts\BuilderAbstract;
+use CodeandoMexico\Sismomx\Core\Abstracts\Builders\BuilderAbstract;
 use CodeandoMexico\Sismomx\Core\Dictionaries\GoogleSheetsApiV4\LinkDictionary;
 use CodeandoMexico\Sismomx\Core\Dtos\LinkDto;
 use CodeandoMexico\Sismomx\Core\Interfaces\Builders\LinkBuilderInterface;
@@ -17,6 +17,16 @@ class LinkBuilder extends BuilderAbstract implements LinkBuilderInterface
      * @var LinkDto
      */
     protected $builtable;
+
+    /**
+     * LinkBuilder constructor.
+     * @Inject
+     * @param LinkDto $dto
+     */
+    public function __construct(LinkDto $dto)
+    {
+        $this->builtable = $dto;
+    }
 
     /**
      * @inheritdoc

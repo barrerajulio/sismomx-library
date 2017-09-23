@@ -1,7 +1,7 @@
 <?php
 namespace CodeandoMexico\Sismomx\Core\Builders;
 
-use CodeandoMexico\Sismomx\Core\Abstracts\BuilderAbstract;
+use CodeandoMexico\Sismomx\Core\Abstracts\Builders\BuilderAbstract;
 use CodeandoMexico\Sismomx\Core\Dictionaries\GoogleSheetsApiV4\CollectionCenterDictionary;
 use CodeandoMexico\Sismomx\Core\Dtos\CollectionCenterDto;
 use CodeandoMexico\Sismomx\Core\Interfaces\Builders\CollectionCenterBuilderInterface;
@@ -17,6 +17,16 @@ class CollectionCenterBuilder extends BuilderAbstract implements CollectionCente
      * @var CollectionCenterDto
      */
     protected $builtable;
+
+    /**
+     * CollectionCenterBuilder constructor.
+     * @Inject
+     * @param CollectionCenterDto $dto
+     */
+    public function __construct(CollectionCenterDto $dto)
+    {
+        $this->builtable = $dto;
+    }
 
     /**
      * @inheritdoc

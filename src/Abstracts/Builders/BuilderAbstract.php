@@ -1,5 +1,5 @@
 <?php
-namespace CodeandoMexico\Sismomx\Core\Abstracts;
+namespace CodeandoMexico\Sismomx\Core\Abstracts\Builders;
 
 use CodeandoMexico\Sismomx\Core\Interfaces\Capabilities\BuilderInterface;
 use CodeandoMexico\Sismomx\Core\Interfaces\Capabilities\BuiltableInterface;

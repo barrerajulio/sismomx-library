@@ -1,7 +1,7 @@
 <?php
 namespace CodeandoMexico\Sismomx\Core\Builders;
 
-use CodeandoMexico\Sismomx\Core\Abstracts\BuilderAbstract;
+use CodeandoMexico\Sismomx\Core\Abstracts\Builders\BuilderAbstract;
 use CodeandoMexico\Sismomx\Core\Dictionaries\GoogleSheetsApiV4\HelpRequestDictionary;
 use CodeandoMexico\Sismomx\Core\Dtos\HelpRequestDto;
 use CodeandoMexico\Sismomx\Core\Interfaces\Builders\HelpRequestBuilderInterface;
@@ -17,6 +17,16 @@ class HelpRequestBuilder extends BuilderAbstract implements HelpRequestBuilderIn
      * @var HelpRequestDto
      */
     protected $builtable;
+
+    /**
+     * HelpRequestBuilder constructor.
+     * @Inject
+     * @param HelpRequestDto $dto
+     */
+    public function __construct(HelpRequestDto $dto)
+    {
+        $this->builtable = $dto;
+    }
 
     /**
      * @inheritdoc

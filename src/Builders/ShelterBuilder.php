@@ -1,7 +1,7 @@
 <?php
 namespace CodeandoMexico\Sismomx\Core\Builders;
 
-use CodeandoMexico\Sismomx\Core\Abstracts\BuilderAbstract;
+use CodeandoMexico\Sismomx\Core\Abstracts\Builders\BuilderAbstract;
 use CodeandoMexico\Sismomx\Core\Dictionaries\GoogleSheetsApiV4\ShelterDictionary;
 use CodeandoMexico\Sismomx\Core\Dtos\ShelterDto;
 use CodeandoMexico\Sismomx\Core\Interfaces\Builders\ShelterBuilderInterface;
@@ -17,6 +17,16 @@ class ShelterBuilder extends BuilderAbstract implements ShelterBuilderInterface
      * @var ShelterDto
      */
     protected $builtable;
+
+    /**
+     * ShelterBuilder constructor.
+     * @Inject
+     * @param ShelterDto $dto
+     */
+    public function __construct(ShelterDto $dto)
+    {
+        $this->builtable = $dto;
+    }
 
     /**
      * @inheritdoc

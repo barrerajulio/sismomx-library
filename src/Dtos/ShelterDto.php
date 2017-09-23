@@ -1,6 +1,8 @@
 <?php
 namespace CodeandoMexico\Sismomx\Core\Dtos;
 
+use CodeandoMexico\Sismomx\Core\Interfaces\Capabilities\BuiltableInterface;
+
 /**
  * Sheet `ALBERGUES`
  *
@@ -9,7 +11,7 @@ namespace CodeandoMexico\Sismomx\Core\Dtos;
  * @package CodeandoMexico\Sismomx\Core\Dtos
  * @Injectable(scope="prototype")
  */
-class ShelterDto
+class ShelterDto implements BuiltableInterface
 {
     /**
      * @var int
