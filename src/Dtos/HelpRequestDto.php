@@ -2,8 +2,12 @@
 namespace CodeandoMexico\Sismomx\Core\Dtos;
 
 /**
+ * Sheet `URGENCIAS Y SOLICITUDES POR ZON`
+ *
  * Class HelpRequestDto
+ * @link https://docs.google.com/spreadsheets/d/1e21rEEz89y5hnN4GoqfPVNJ8hQRGOYWMfTjigAuWT8k/edit#gid=1110984471
  * @package CodeandoMexico\Sismomx\Core\Dtos
+ * @Injectable(scope="prototype")
  */
 class HelpRequestDto
 {

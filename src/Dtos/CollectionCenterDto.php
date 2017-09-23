@@ -2,8 +2,12 @@
 namespace CodeandoMexico\Sismomx\Core\Dtos;
 
 /**
+ * Sheet `CENTROS DE ACOPIO`
+ *
  * Class CollectionCenterDto
+ * @link https://docs.google.com/spreadsheets/d/1e21rEEz89y5hnN4GoqfPVNJ8hQRGOYWMfTjigAuWT8k/edit#gid=578362632
  * @package CodeandoMexico\Sismomx\Core\Dtos
+ * @Injectable(scope="prototype")
  */
 class CollectionCenterDto
 {
@@ -55,10 +59,10 @@ class CollectionCenterDto
     /**
      * @var string
      */
-    public $updatedAt;
+    public $contact;
 
     /**
-     * @var string
+     * @var \DateTime
      */
-    public $contact;
+    public $updatedAt;
 }
