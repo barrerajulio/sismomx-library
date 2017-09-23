@@ -1,9 +1,10 @@
 <?php
-namespace CodeandoMexico\Sismomx\Traits;
+namespace CodeandoMexico\Sismomx\Core\Traits;
 
 /**
  * Trait GoogleClientTrait
- * @package CodeandoMexico\Sismomx\Traits
+ * @package CodeandoMexico\Sismomx\Core\Traits
+ * @Injectable()
  */
 trait GoogleClientTrait
 {
