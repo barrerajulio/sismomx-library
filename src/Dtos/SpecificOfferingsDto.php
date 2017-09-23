@@ -7,6 +7,15 @@ namespace CodeandoMexico\Sismomx\Core\Dtos;
  */
 class SpecificOfferingsDto
 {
+    /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $encodedKey;
 
     /**
      * (Quién ofrece?)

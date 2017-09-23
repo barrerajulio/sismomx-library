@@ -8,6 +8,16 @@ namespace CodeandoMexico\Sismomx\Core\Dtos;
 class ShelterDto
 {
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $encodedKey;
+
+    /**
      * @var string
      */
     public $location;

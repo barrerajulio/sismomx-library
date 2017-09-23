@@ -8,6 +8,16 @@ namespace CodeandoMexico\Sismomx\Core\Dtos;
 class LinkDto
 {
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $encodedKey;
+
+    /**
      * @var string
      */
     public $descriptionm;
