@@ -62,10 +62,14 @@ class SpecificOfferingsDto
      */
     public $updatedAt;
 
-
     /**
      * (Caduca)
      * @var string
      */
     public $expiresAt;
+
+    /**
+     * @var \DateTime
+     */
+    public $createdAt;
 }

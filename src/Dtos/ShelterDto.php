@@ -49,10 +49,15 @@ class ShelterDto
     /**
      * @var string
      */
-    public $moreInfo;
+    public $moreInformation;
 
     /**
      * @var string
      */
     public $updatedAt;
+
+    /**
+     * @var \DateTime
+     */
+    public $createdAt;
 }

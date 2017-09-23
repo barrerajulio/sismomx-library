@@ -65,4 +65,9 @@ class CollectionCenterDto
      * @var \DateTime
      */
     public $updatedAt;
+
+    /**
+     * @var \DateTime
+     */
+    public $createdAt;
 }

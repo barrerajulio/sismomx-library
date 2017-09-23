@@ -65,4 +65,9 @@ class HelpRequestDto
      * @var string
      */
     public $updatedAt;
+
+    /**
+     * @var \DateTime
+     */
+    public $createdAt;
 }

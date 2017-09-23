@@ -30,4 +30,9 @@ class LinkDto
      * @var string
      */
     public $url;
+
+    /**
+     * @var \DateTime
+     */
+    public $createdAt;
 }
