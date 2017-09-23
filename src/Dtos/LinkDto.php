@@ -7,12 +7,10 @@ namespace CodeandoMexico\Sismomx\Core\Dtos;
  */
 class LinkDto
 {
-
     /**
      * @var string
      */
-    public $descriptionm,
-
+    public $descriptionm;
 
     /**
      * @var string
