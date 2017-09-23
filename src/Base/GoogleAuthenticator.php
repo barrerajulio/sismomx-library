@@ -44,9 +44,14 @@ class GoogleAuthenticator
         $this->setCredentialsPath($credentialsPath);
     }
 
+    /**
+     * @param string $appName
+     * @return \Google_Client
+     */
     public function auth($appName)
     {
         $this->configure($appName);
+        return $this->googleClient;
     }
 
     /**
@@ -58,6 +63,7 @@ class GoogleAuthenticator
         $this->googleClient->setApplicationName($appName);
         $this->googleClient->setAccessType($this->accessType);
         $this->googleClient->setScopes($this->scopes);
+        $this->googleClient->setAccessToken($this->getAccessToken());
     }
 
     /**
