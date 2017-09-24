@@ -34,17 +34,6 @@ class GoogleAuthenticator
     ];
 
     /**
-     * GoogleAuthenticator constructor.
-     * @param string $secretPath
-     * @param string $credentialsPath
-     */
-    public function __construct($secretPath, $credentialsPath)
-    {
-        $this->setSecretPath($secretPath);
-        $this->setCredentialsPath($credentialsPath);
-    }
-
-    /**
      * @param string $appName
      * @return \Google_Client
      */

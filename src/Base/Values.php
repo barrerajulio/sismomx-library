@@ -7,7 +7,7 @@ use CodeandoMexico\Sismomx\Core\Interfaces\Capabilities\ValueableInterface;
  * Class Values
  * @package CodeandoMexico\Sismomx\Core\Base
  */
-class Values implements ValueableInterface
+class Values
 {
     /**
      * @inheritdoc

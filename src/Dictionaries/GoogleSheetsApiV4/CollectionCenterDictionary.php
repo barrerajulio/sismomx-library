@@ -9,7 +9,7 @@ final class CollectionCenterDictionary
 {
     const ID = 'id';
     const ENCODED_KEY = 'encoded_key';
-    const URGENCY_LEVEL = 'urgencyLevel';
+    const URGENCY_LEVEL = 'urgency_level';
     const LOCATION = 'location';
     const REQUIREMENTS_DETAILS = 'requirements_details';
     const ADDRESS = 'address';
