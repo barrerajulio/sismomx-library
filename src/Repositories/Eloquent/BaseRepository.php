@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeandoMexico\Sismomx\Core\Repositories\Laravel;
+namespace CodeandoMexico\Sismomx\Core\Repositories\Eloquent;
 
 use Exception;
 use Illuminate\Database\Eloquent\Model;
