@@ -5,6 +5,7 @@ namespace CodeandoMexico\Sismomx\Core\Services;
 use CodeandoMexico\Sismomx\Core\Repositories\Eloquent\BaseRepository;
 use CodeandoMexico\Sismomx\Core\Repositories\Eloquent\CollectionCenterRepository;
 use CodeandoMexico\Sismomx\Core\Repositories\Eloquent\HelpRequestRepository;
+use CodeandoMexico\Sismomx\Core\Repositories\Eloquent\LinkRepository;
 use CodeandoMexico\Sismomx\Core\Repositories\Eloquent\ShelterRepository;
 use Exception;
 
@@ -21,7 +22,8 @@ class QueryService
     protected $repositories = [
         CollectionCenterRepository::REQUEST_FILTER_INDEX => CollectionCenterRepository::class,
         HelpRequestRepository::REQUEST_FILTER_INDEX => HelpRequestRepository::class,
-        ShelterRepository::REQUEST_FILTER_INDEX => ShelterRepository::class
+        ShelterRepository::REQUEST_FILTER_INDEX => ShelterRepository::class,
+        LinkRepository::REQUEST_FILTER_INDEX => LinkRepository::class
     ];
 
     public function run(array $requestData)
