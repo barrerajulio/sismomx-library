@@ -26,7 +26,7 @@ class SpecificOfferingsDbMutator implements \JsonSerializable
      */
     public function toArray()
     {
-        return [
+        $payload = [
             SpecificOfferingsDictionary::ENCODED_KEY => $this->dto->encodedKey,
             SpecificOfferingsDictionary::OFFERING_FROM => $this->dto->offeringFrom,
             SpecificOfferingsDictionary::OFFERING_DETAILS => $this->dto->offeringDetails,
@@ -37,6 +37,13 @@ class SpecificOfferingsDbMutator implements \JsonSerializable
             SpecificOfferingsDictionary::CREATED_AT => $this->dto->createdAt,
             SpecificOfferingsDictionary::EXPIRES_AT => $this->dto->expiresAt,
         ];
+        if (empty(SpecificOfferingsDictionary::CREATED_AT) === true) {
+            $payload[SpecificOfferingsDictionary::CREATED_AT] = date('Y-m-d H:i:s');
+        }
+        if (empty($payload[SpecificOfferingsDictionary::ENCODED_KEY]) === true) {
+            $payload[SpecificOfferingsDictionary::ENCODED_KEY] = hash('sha256',json_encode($payload));
+        }
+        return $payload;
     }
 
     /**
