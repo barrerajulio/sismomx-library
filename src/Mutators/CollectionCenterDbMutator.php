@@ -40,14 +40,14 @@ class CollectionCenterDbMutator implements \JsonSerializable
             CollectionCenterDictionary::MAP => $this->dto->map,
             CollectionCenterDictionary::MORE_INFORMATION => $this->dto->moreInformation,
             CollectionCenterDictionary::CONTACT => $this->dto->contact,
-            CollectionCenterDictionary::UPDATED_AT => $this->dto->updatedAt,
+//            CollectionCenterDictionary::UPDATED_AT => $this->dto->updatedAt,
             CollectionCenterDictionary::CREATED_AT => $this->dto->createdAt,
         ];
-        if (empty(CollectionCenterDictionary::CREATED_AT) === true) {
+        if (empty($payload[CollectionCenterDictionary::CREATED_AT]) === true) {
             $payload[CollectionCenterDictionary::CREATED_AT] = date('Y-m-d H:i:s');
         }
         if (empty($payload[CollectionCenterDictionary::ENCODED_KEY]) === true) {
-            $payload[CollectionCenterDictionary::ENCODED_KEY] = hash('sha256',json_encode($payload));
+            $payload[CollectionCenterDictionary::ENCODED_KEY] = hash('sha256', json_encode($payload));
         }
         return $payload;
     }

@@ -33,15 +33,15 @@ class SpecificOfferingsDbMutator implements \JsonSerializable
             SpecificOfferingsDictionary::CONTACT => $this->dto->contact,
             SpecificOfferingsDictionary::NOTES => $this->dto->notes,
             SpecificOfferingsDictionary::MORE_INFORMATION => $this->dto->moreInformation,
-            SpecificOfferingsDictionary::UPDATED_AT => $this->dto->updatedAt,
+//            SpecificOfferingsDictionary::UPDATED_AT => $this->dto->updatedAt,
             SpecificOfferingsDictionary::CREATED_AT => $this->dto->createdAt,
             SpecificOfferingsDictionary::EXPIRES_AT => $this->dto->expiresAt,
         ];
-        if (empty(SpecificOfferingsDictionary::CREATED_AT) === true) {
+        if (empty($payload[SpecificOfferingsDictionary::CREATED_AT]) === true) {
             $payload[SpecificOfferingsDictionary::CREATED_AT] = date('Y-m-d H:i:s');
         }
         if (empty($payload[SpecificOfferingsDictionary::ENCODED_KEY]) === true) {
-            $payload[SpecificOfferingsDictionary::ENCODED_KEY] = hash('sha256',json_encode($payload));
+            $payload[SpecificOfferingsDictionary::ENCODED_KEY] = hash('sha256', json_encode($payload));
         }
         return $payload;
     }
