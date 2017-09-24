@@ -1,6 +1,8 @@
 <?php
 namespace CodeandoMexico\Sismomx\Core\Dtos;
 
+use CodeandoMexico\Sismomx\Core\Interfaces\Capabilities\BuiltableInterface;
+
 /**
  * Sheet `OTROS ENLACES`
  *
@@ -9,7 +11,7 @@ namespace CodeandoMexico\Sismomx\Core\Dtos;
  * @package CodeandoMexico\Sismomx\Core\Dtos
  * @Injectable()
  */
-class LinkDto
+class LinkDto implements BuiltableInterface
 {
     /**
      * @var int
@@ -30,4 +32,9 @@ class LinkDto
      * @var string
      */
     public $url;
+
+    /**
+     * @var \DateTime
+     */
+    public $createdAt;
 }

@@ -1,6 +1,8 @@
 <?php
 namespace CodeandoMexico\Sismomx\Core\Dtos;
 
+use CodeandoMexico\Sismomx\Core\Interfaces\Capabilities\BuiltableInterface;
+
 /**
  * Sheet `CENTROS DE ACOPIO`
  *
@@ -9,7 +11,7 @@ namespace CodeandoMexico\Sismomx\Core\Dtos;
  * @package CodeandoMexico\Sismomx\Core\Dtos
  * @Injectable(scope="prototype")
  */
-class CollectionCenterDto
+class CollectionCenterDto implements BuiltableInterface
 {
     /**
      * @var int
@@ -65,4 +67,9 @@ class CollectionCenterDto
      * @var \DateTime
      */
     public $updatedAt;
+
+    /**
+     * @var \DateTime
+     */
+    public $createdAt;
 }

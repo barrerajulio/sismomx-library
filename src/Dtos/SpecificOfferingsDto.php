@@ -1,6 +1,8 @@
 <?php
 namespace CodeandoMexico\Sismomx\Core\Dtos;
 
+use CodeandoMexico\Sismomx\Core\Interfaces\Capabilities\BuiltableInterface;
+
 /**
  * Sheet `OFRECIMIENTOS ESPECÍFICOS`
  *
@@ -9,7 +11,7 @@ namespace CodeandoMexico\Sismomx\Core\Dtos;
  * @package CodeandoMexico\Sismomx\Core\Dtos
  * @Injectable(scope="prototype")
  */
-class SpecificOfferingsDto
+class SpecificOfferingsDto implements BuiltableInterface
 {
     /**
      * @var int
@@ -62,10 +64,14 @@ class SpecificOfferingsDto
      */
     public $updatedAt;
 
-
     /**
      * (Caduca)
      * @var string
      */
     public $expiresAt;
+
+    /**
+     * @var \DateTime
+     */
+    public $createdAt;
 }

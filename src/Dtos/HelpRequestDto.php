@@ -1,6 +1,8 @@
 <?php
 namespace CodeandoMexico\Sismomx\Core\Dtos;
 
+use CodeandoMexico\Sismomx\Core\Interfaces\Capabilities\BuiltableInterface;
+
 /**
  * Sheet `URGENCIAS Y SOLICITUDES POR ZON`
  *
@@ -9,7 +11,7 @@ namespace CodeandoMexico\Sismomx\Core\Dtos;
  * @package CodeandoMexico\Sismomx\Core\Dtos
  * @Injectable(scope="prototype")
  */
-class HelpRequestDto
+class HelpRequestDto implements BuiltableInterface
 {
     /**
      * @var int
@@ -65,4 +67,9 @@ class HelpRequestDto
      * @var string
      */
     public $updatedAt;
+
+    /**
+     * @var \DateTime
+     */
+    public $createdAt;
 }

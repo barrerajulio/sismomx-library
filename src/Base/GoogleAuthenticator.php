@@ -1,7 +1,7 @@
 <?php
 namespace CodeandoMexico\Sismomx\Core\Base;
 
-use CodeandoMexico\Sismomx\Core\Traits\GoogleClientTrait;
+use CodeandoMexico\Sismomx\Core\Traits\Base\GoogleClientTrait;
 
 /**
  * Class GoogleAuthenticator
@@ -32,17 +32,6 @@ class GoogleAuthenticator
     public $scopes = [
         \Google_Service_Sheets::SPREADSHEETS_READONLY
     ];
-
-    /**
-     * GoogleAuthenticator constructor.
-     * @param string $secretPath
-     * @param string $credentialsPath
-     */
-    public function __construct($secretPath, $credentialsPath)
-    {
-        $this->setSecretPath($secretPath);
-        $this->setCredentialsPath($credentialsPath);
-    }
 
     /**
      * @param string $appName
