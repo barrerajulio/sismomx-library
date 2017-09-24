@@ -12,6 +12,11 @@ use Illuminate\Database\Eloquent\Model;
 class CollectionCenter extends Model
 {
     /**
+     * @var string
+     */
+    protected $table = 'collection_center';
+
+    /**
      * Campos donde no se permite la asignacion masiva
      * @var array
      */
