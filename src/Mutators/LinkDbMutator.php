@@ -1,11 +1,13 @@
 <?php
 namespace CodeandoMexico\Sismomx\Core\Mutators;
+
 use CodeandoMexico\Sismomx\Core\Dictionaries\GoogleSheetsApiV4\LinkDictionary;
 use CodeandoMexico\Sismomx\Core\Dtos\LinkDto;
 
 /**
  * Class LinkDbMutator
  * @package CodeandoMexico\Sismomx\Core\Mutators
+ * @Injectable(scope="prototype")
  */
 class LinkDbMutator implements \JsonSerializable
 {
@@ -29,7 +31,6 @@ class LinkDbMutator implements \JsonSerializable
     public function toArray()
     {
         return [
-            LinkDictionary::ID => $this->dto->id,
             LinkDictionary::ENCODED_KEY => $this->dto->encodedKey,
             LinkDictionary::DESCRIPTION => $this->dto->description,
             LinkDictionary::URL => $this->dto->url,

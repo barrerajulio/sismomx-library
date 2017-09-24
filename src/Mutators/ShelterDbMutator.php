@@ -1,11 +1,13 @@
 <?php
 namespace CodeandoMexico\Sismomx\Core\Mutators;
+
 use CodeandoMexico\Sismomx\Core\Dictionaries\GoogleSheetsApiV4\ShelterDictionary;
 use CodeandoMexico\Sismomx\Core\Dtos\ShelterDto;
 
 /**
  * Class ShelterDbMutator
  * @package CodeandoMexico\Sismomx\Core\Mutators
+ * @Injectable(scope="prototype")
  */
 class ShelterDbMutator implements \JsonSerializable
 {
@@ -29,7 +31,6 @@ class ShelterDbMutator implements \JsonSerializable
     public function toArray()
     {
         return [
-            ShelterDictionary::ID => $this->dto->id,
             ShelterDictionary::ENCODED_KEY => $this->dto->encodedKey,
             ShelterDictionary::LOCATION => $this->dto->location,
             ShelterDictionary::RECEIVING  => $this->dto->receiving,

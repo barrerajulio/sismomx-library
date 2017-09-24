@@ -1,10 +1,13 @@
 <?php
 namespace CodeandoMexico\Sismomx\Core\Mutators;
+
 use CodeandoMexico\Sismomx\Core\Dictionaries\GoogleSheetsApiV4\CollectionCenterDictionary;
 use CodeandoMexico\Sismomx\Core\Dtos\CollectionCenterDto;
 
 /**
  * Class CollectionCenterDbMutator
+ * @package CodeandoMexico\Sismomx\Core\Mutators
+ * @Injectable(scope="prototype")
  */
 class CollectionCenterDbMutator implements \JsonSerializable
 {
@@ -28,7 +31,6 @@ class CollectionCenterDbMutator implements \JsonSerializable
     public function toArray()
     {
         return [
-            CollectionCenterDictionary::ID => $this->dto->id,
             CollectionCenterDictionary::ENCODED_KEY => $this->dto->encodedKey,
             CollectionCenterDictionary::URGENCY_LEVEL => $this->dto->urgencyLevel,
             CollectionCenterDictionary::LOCATION => $this->dto->location,

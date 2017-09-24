@@ -1,12 +1,13 @@
 <?php
 namespace CodeandoMexico\Sismomx\Core\Mutators;
+
 use CodeandoMexico\Sismomx\Core\Dictionaries\GoogleSheetsApiV4\HelpRequestDictionary;
 use CodeandoMexico\Sismomx\Core\Dtos\HelpRequestDto;
-use DI\Definition\Helper\ArrayDefinitionExtensionHelper;
 
 /**
  * Class HelpRequestDbMutator
  * @package CodeandoMexico\Sismomx\Core\Mutators
+ * @Injectable(scope="prototype")
  */
 class HelpRequestDbMutator implements \JsonSerializable
 {
@@ -30,7 +31,6 @@ class HelpRequestDbMutator implements \JsonSerializable
     public function toArray()
     {
        return [
-           HelpRequestDictionary::ID => $this->dto->id,
            HelpRequestDictionary::ENCODED_KEY => $this->dto->encodedKey,
            HelpRequestDictionary::URGENCY_LEVEL => $this->dto->urgencyLevel,
            HelpRequestDictionary::BRIGADE_REQUIRED => $this->dto->brigadeRequired,

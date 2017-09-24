@@ -1,11 +1,13 @@
 <?php
 namespace CodeandoMexico\Sismomx\Core\Mutators;
+
 use CodeandoMexico\Sismomx\Core\Dictionaries\GoogleSheetsApiV4\SpecificOfferingsDictionary;
 use CodeandoMexico\Sismomx\Core\Dtos\SpecificOfferingsDto;
 
 /**
  * Class SpecificOfferingsDbMutator
  * @package CodeandoMexico\Sismomx\Core\Mutators
+ * @Injectable(scope="prototype")
  */
 class SpecificOfferingsDbMutator implements \JsonSerializable
 {
@@ -25,7 +27,6 @@ class SpecificOfferingsDbMutator implements \JsonSerializable
     public function toArray()
     {
         return [
-            SpecificOfferingsDictionary::ID => $this->dto->id,
             SpecificOfferingsDictionary::ENCODED_KEY => $this->dto->encodedKey,
             SpecificOfferingsDictionary::OFFERING_FROM => $this->dto->offeringFrom,
             SpecificOfferingsDictionary::OFFERING_DETAILS => $this->dto->offeringDetails,
