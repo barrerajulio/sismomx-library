@@ -1,7 +1,7 @@
 <?php
 namespace CodeandoMexico\Sismomx\Core\Base;
 
-use CodeandoMexico\Sismomx\Core\Traits\GoogleClientTrait;
+use CodeandoMexico\Sismomx\Core\Traits\Base\GoogleClientTrait;
 
 /**
  * Class GoogleAuthenticator
