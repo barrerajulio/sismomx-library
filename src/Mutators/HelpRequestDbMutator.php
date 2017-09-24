@@ -40,14 +40,14 @@ class HelpRequestDbMutator implements \JsonSerializable
             HelpRequestDictionary::ADDRESS => $this->dto->address,
             HelpRequestDictionary::ZONE => $this->dto->zone,
             HelpRequestDictionary::SOURCE => $this->dto->source,
-            HelpRequestDictionary::UPDATED_AT => $this->dto->updatedAt,
+//            HelpRequestDictionary::UPDATED_AT => $this->dto->updatedAt,
             HelpRequestDictionary::CREATED_AT => $this->dto->createdAt,
         ];
-        if (empty(HelpRequestDictionary::CREATED_AT) === true) {
+        if (empty($payload[HelpRequestDictionary::CREATED_AT]) === true) {
             $payload[HelpRequestDictionary::CREATED_AT] = date('Y-m-d H:i:s');
         }
         if (empty($payload[HelpRequestDictionary::ENCODED_KEY]) === true) {
-            $payload[HelpRequestDictionary::ENCODED_KEY] = hash('sha256',json_encode($payload));
+            $payload[HelpRequestDictionary::ENCODED_KEY] = hash('sha256', json_encode($payload));
         }
         return $payload;
     }
