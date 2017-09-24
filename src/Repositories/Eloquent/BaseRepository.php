@@ -132,7 +132,8 @@ class BaseRepository
         $queryBuilder->from($this->getModel()->getTable())
             ->select($fields);
 
-        foreach ($params as $attribute => $data) {
+        foreach ($params as $data) {
+            $attribute = $data['field'];
             $operator = (isset($data['operator'])) ? $data['operator'] : '=';
             $value = $data['value'];
             $queryBuilder->where($attribute, $operator, $value);

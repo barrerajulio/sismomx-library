@@ -34,6 +34,7 @@ class QueryService
             $repository = app($repositoryPath);
             $conditions = (array_key_exists('conditions', $params)) ? $params['conditions']: [];
             $fields = (array_key_exists('fields', $params)) ? $params['fields']: [];
+            $orderBy = (array_key_exists('orderBy', $params)) ? $params['orderBy']: [];
             $limit = (array_key_exists('limit', $params)) ? $params['limit']: BaseRepository::DEFAULT_LIMIT;
             $result = $repository->findByAttributesRaw($conditions, $fields, $limit);
             $data[$repository::REQUEST_FILTER_INDEX] = $result->toArray();
