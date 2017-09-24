@@ -32,11 +32,20 @@ class QueryService
     {
         // todo validar request, si no cumple estructura indicada no se deberia continuar
 
+        $data = [];
+
         if (empty($requestData)) {
-            return [];
+            foreach ($this->repositories as $repositoryPath) {
+                $repositoryPath = $this->getRepository($repositoryPath);
+                /** @var BaseRepository $repository */
+                $repository = app($repositoryPath);
+                $result = $repository->findByAttributesRaw([], [], []);
+                $data[$repository::REQUEST_FILTER_INDEX] = $result->toArray();
+            }
+            return $data;
         }
 
-        $data = [];
+
         foreach ($requestData as $categoryFilter => $params) {
             $repositoryPath = $this->getRepository($categoryFilter);
             /** @var BaseRepository $repository */

@@ -123,20 +123,18 @@ class BaseRepository
      */
     public function findByAttributesRaw(array $params, $fields = [], $orderBy = [], $limit = self::DEFAULT_LIMIT)
     {
-        if (empty($params)) {
-            return [];
-        }
-
         $fields = $this->requestedFields($fields);
         $queryBuilder = $this->getQueryBuilder();
         $queryBuilder->from($this->getModel()->getTable())
             ->select($fields);
 
-        foreach ($params as $data) {
-            $attribute = $data['field'];
-            $operator = (isset($data['operator'])) ? $data['operator'] : '=';
-            $value = $data['value'];
-            $queryBuilder->where($attribute, $operator, $value);
+        if (!empty($params)) {
+            foreach ($params as $data) {
+                $attribute = $data['field'];
+                $operator = (isset($data['operator'])) ? $data['operator'] : '=';
+                $value = $data['value'];
+                $queryBuilder->where($attribute, $operator, $value);
+            }
         }
 
         if (!empty($orderBy)) {
