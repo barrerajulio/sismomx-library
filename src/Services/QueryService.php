@@ -28,7 +28,7 @@ class QueryService
         }
 
         $data = [];
-        foreach ($this->repositories as $categoryFilter => $params) {
+        foreach ($requestData as $categoryFilter => $params) {
             $repositoryPath = $this->getRepository($categoryFilter);
             /** @var BaseRepository $repository */
             $repository = app($repositoryPath);
