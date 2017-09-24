@@ -36,6 +36,12 @@ class LinkDbMutator implements \JsonSerializable
             LinkDictionary::URL => $this->dto->url,
             LinkDictionary::CREATED_AT => $this->dto->createdAt,
         ];
+        if (empty($payload[LinkDictionary::CREATED_AT]) === true) {
+            $payload[LinkDictionary::CREATED_AT] = date('Y-m-d H:i:s');
+        }
+        if (empty($payload[LinkDictionary::ENCODED_KEY]) === true) {
+            $payload[LinkDictionary::ENCODED_KEY] = hash('sha256', json_encode($payload));
+        }
         return $payload;
     }
 
