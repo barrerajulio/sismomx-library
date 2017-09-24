@@ -8,7 +8,7 @@ use CodeandoMexico\Sismomx\Core\Models\Eloquent\SpecificOffering;
  * User: @fabianjuarezmx
  * Date: 9/24/17
  */
-class SpecificOfferingRepository
+class SpecificOfferingRepository extends BaseRepository
 {
     /**
      * Indice enviado en la consulta del API para identificar el repositorio a donde se realizara la consulta

@@ -8,7 +8,7 @@ use CodeandoMexico\Sismomx\Core\Models\Eloquent\Link;
  * User: @fabianjuarezmx
  * Date: 9/23/17
  */
-class LinkRepository
+class LinkRepository extends BaseRepository
 {
     /**
      * Indice enviado en la consulta del API para identificar el repositorio a donde se realizara la consulta
