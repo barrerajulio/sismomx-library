@@ -11,5 +11,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class CollectionCenter extends Model
 {
-
+    /**
+     * Campos donde no se permite la asignacion masiva
+     * @var array
+     */
+    protected $guarded = [];
 }
