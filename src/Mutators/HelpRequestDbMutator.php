@@ -43,12 +43,6 @@ class HelpRequestDbMutator implements \JsonSerializable
             HelpRequestDictionary::UPDATED_AT => $this->dto->updatedAt,
             HelpRequestDictionary::CREATED_AT => $this->dto->createdAt,
         ];
-        if (empty(HelpRequestDictionary::CREATED_AT) === true) {
-            $payload[HelpRequestDictionary::CREATED_AT] = date('Y-m-d H:i:s');
-        }
-        if (empty($payload[HelpRequestDictionary::ENCODED_KEY]) === true) {
-            $payload[HelpRequestDictionary::ENCODED_KEY] = hash('sha256',json_encode($payload));
-        }
         return $payload;
     }
 

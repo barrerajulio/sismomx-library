@@ -43,12 +43,6 @@ class CollectionCenterDbMutator implements \JsonSerializable
             CollectionCenterDictionary::UPDATED_AT => $this->dto->updatedAt,
             CollectionCenterDictionary::CREATED_AT => $this->dto->createdAt,
         ];
-        if (empty(CollectionCenterDictionary::CREATED_AT) === true) {
-            $payload[CollectionCenterDictionary::CREATED_AT] = date('Y-m-d H:i:s');
-        }
-        if (empty($payload[CollectionCenterDictionary::ENCODED_KEY]) === true) {
-            $payload[CollectionCenterDictionary::ENCODED_KEY] = hash('sha256',json_encode($payload));
-        }
         return $payload;
     }
 
