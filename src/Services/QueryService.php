@@ -3,6 +3,7 @@
 namespace CodeandoMexico\Sismomx\Core\Services;
 use CodeandoMexico\Sismomx\Core\Repositories\Eloquent\BaseRepository;
 use CodeandoMexico\Sismomx\Core\Repositories\Eloquent\CollectionCenterRepository;
+use CodeandoMexico\Sismomx\Core\Repositories\Eloquent\HelpRequestRepository;
 use Exception;
 
 /**
@@ -16,7 +17,8 @@ class QueryService
      * @var array
      */
     protected $repositories = [
-        CollectionCenterRepository::REQUEST_FILTER_INDEX => CollectionCenterRepository::class
+        CollectionCenterRepository::REQUEST_FILTER_INDEX => CollectionCenterRepository::class,
+        HelpRequestRepository::REQUEST_FILTER_INDEX => HelpRequestRepository::class
     ];
 
     public function run(array $requestData)
