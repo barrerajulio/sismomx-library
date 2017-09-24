@@ -2,7 +2,10 @@
 
 namespace CodeandoMexico\Sismomx\Core\Repositories\Laravel;
 
+use Exception;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\MySqlConnection;
+use Illuminate\Support\Facades\DB;
 
 /**
  * User: @fabianjuarezmx
@@ -47,6 +50,51 @@ class BaseRepository
     public function getQueryBuilder()
     {
         return $this->getModel()->newQuery()->getQuery();
+    }
+
+    /**
+     * @return MySqlConnection
+     */
+    protected function getConnection()
+    {
+        /** @var MySqlConnection $connection */
+        $connection = app('db')->connection();
+        return $connection;
+    }
+
+    /**
+     * Insertar un solo elemento usando el ORM
+     * @param array $payload - arreglo clave => valor, donde clave debe corresponder con el nombre del campo en la tabla
+     * @return mixed
+     * @throws Exception
+     */
+    public function storeSingleRowFromArray(array $payload)
+    {
+        $model = $this->model->newInstance();
+        $model->fill($payload);
+
+        $result = $model->save();
+
+        $msg = '';
+        if (!$result) {
+            $msg .= ' Error al guardar | ' . json_encode($payload);
+            throw new Exception($msg);
+        }
+
+        return $model->id;
+    }
+
+    /**
+     * Insertar de forma masiva, cada elemento del arreglo $payload debera representar una fila en la tabla
+     * @param array $payload
+     * @param null $table
+     * @return mixed
+     */
+    public function storeManyRowsFromArray(array $payload, $table = null)
+    {
+        $table = (is_null($table) ? $this->getModel()->getTable() : $table);
+        $result = DB::table($table)->insert($payload);
+        return $result;
     }
 
     /**
