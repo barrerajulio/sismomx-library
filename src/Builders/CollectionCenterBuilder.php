@@ -5,6 +5,7 @@ use CodeandoMexico\Sismomx\Core\Abstracts\Builders\BuilderAbstract;
 use CodeandoMexico\Sismomx\Core\Dictionaries\GoogleSheetsApiV4\CollectionCenterDictionary;
 use CodeandoMexico\Sismomx\Core\Dtos\CollectionCenterDto;
 use CodeandoMexico\Sismomx\Core\Interfaces\Builders\CollectionCenterBuilderInterface;
+use CodeandoMexico\Sismomx\Core\Traits\Base\DatesHelper;
 
 /**
  * Class CollectionCenterBuilder
@@ -13,6 +14,7 @@ use CodeandoMexico\Sismomx\Core\Interfaces\Builders\CollectionCenterBuilderInter
  */
 class CollectionCenterBuilder extends BuilderAbstract implements CollectionCenterBuilderInterface
 {
+    use DatesHelper;
     /**
      * @var CollectionCenterDto
      */
@@ -45,8 +47,16 @@ class CollectionCenterBuilder extends BuilderAbstract implements CollectionCente
         );
         $this->builtable->urgencyLevel = $this->values->getValue(CollectionCenterDictionary::URGENCY_LEVEL);
         $this->builtable->zone = $this->values->getValue(CollectionCenterDictionary::ZONE);
-        $this->builtable->updatedAt = $this->values->getValue(CollectionCenterDictionary::UPDATED_AT);
-        $this->builtable->createdAt = $this->values->getValue(CollectionCenterDictionary::CREATED_AT);
+        $this->builtable->updatedAt = $this->stringToDate(
+            $this->values->getValue(CollectionCenterDictionary::UPDATED_AT),
+            'Y/d/m H:i'
+        );
+        $this->builtable->createdAt = $this->stringToDate(
+            $this->values->getValue(CollectionCenterDictionary::CREATED_AT),
+            'Y-m-d H:i:s',
+            'now'
+        );
+        $this->builtable->encodedKey = hash('sha256',json_encode($this->values->getValues()));
         return $this;
     }
 }

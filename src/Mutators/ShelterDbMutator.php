@@ -38,15 +38,9 @@ class ShelterDbMutator implements \JsonSerializable
             ShelterDictionary::ZONE => $this->dto->zone,
             ShelterDictionary::MAP => $this->dto->map,
             ShelterDictionary::MORE_INFORMATION => $this->dto->moreInformation,
-//            ShelterDictionary::UPDATED_AT => $this->dto->updatedAt,
+            ShelterDictionary::UPDATED_AT => $this->dto->updatedAt,
             ShelterDictionary::CREATED_AT => $this->dto->createdAt,
         ];
-        if (empty($payload[ShelterDictionary::CREATED_AT]) === true) {
-            $payload[ShelterDictionary::CREATED_AT] = date('Y-m-d H:i:s');
-        }
-        if (empty($payload[ShelterDictionary::ENCODED_KEY]) === true) {
-            $payload[ShelterDictionary::ENCODED_KEY] = hash('sha256', json_encode($payload));
-        }
         return $payload;
     }
 

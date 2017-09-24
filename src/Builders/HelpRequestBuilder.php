@@ -2,9 +2,11 @@
 namespace CodeandoMexico\Sismomx\Core\Builders;
 
 use CodeandoMexico\Sismomx\Core\Abstracts\Builders\BuilderAbstract;
+use CodeandoMexico\Sismomx\Core\Dictionaries\GoogleSheetsApiV4\CollectionCenterDictionary;
 use CodeandoMexico\Sismomx\Core\Dictionaries\GoogleSheetsApiV4\HelpRequestDictionary;
 use CodeandoMexico\Sismomx\Core\Dtos\HelpRequestDto;
 use CodeandoMexico\Sismomx\Core\Interfaces\Builders\HelpRequestBuilderInterface;
+use CodeandoMexico\Sismomx\Core\Traits\Base\DatesHelper;
 
 /**
  * Class HelpRequestBuilder
@@ -13,6 +15,7 @@ use CodeandoMexico\Sismomx\Core\Interfaces\Builders\HelpRequestBuilderInterface;
  */
 class HelpRequestBuilder extends BuilderAbstract implements HelpRequestBuilderInterface
 {
+    use DatesHelper;
     /**
      * @var HelpRequestDto
      */
@@ -43,8 +46,16 @@ class HelpRequestBuilder extends BuilderAbstract implements HelpRequestBuilderIn
         $this->builtable->mostImportantRequired = $this->values->getValue(HelpRequestDictionary::MOST_IMPORTANT_REQUIRED);
         $this->builtable->notRequired = $this->values->getValue(HelpRequestDictionary::NOT_REQUIRED);
         $this->builtable->source = $this->values->getValue(HelpRequestDictionary::SOURCE);
-        $this->builtable->updatedAt = $this->values->getValue(HelpRequestDictionary::UPDATED_AT);
-        $this->builtable->createdAt = $this->values->getValue(HelpRequestDictionary::CREATED_AT);
+        $this->builtable->updatedAt = $this->stringToDate(
+            $this->values->getValue(HelpRequestDictionary::UPDATED_AT),
+            'Y/d/m H:i'
+        );
+        $this->builtable->createdAt = $this->stringToDate(
+            $this->values->getValue(HelpRequestDictionary::CREATED_AT),
+            'Y-m-d H:i:s',
+            'now'
+        );
+        $this->builtable->encodedKey = hash('sha256',json_encode($this->values->getValues()));
         return $this;
     }
 }

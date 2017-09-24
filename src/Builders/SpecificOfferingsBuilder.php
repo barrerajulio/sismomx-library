@@ -5,6 +5,7 @@ use CodeandoMexico\Sismomx\Core\Abstracts\Builders\BuilderAbstract;
 use CodeandoMexico\Sismomx\Core\Dictionaries\GoogleSheetsApiV4\SpecificOfferingsDictionary;
 use CodeandoMexico\Sismomx\Core\Dtos\SpecificOfferingsDto;
 use CodeandoMexico\Sismomx\Core\Interfaces\Builders\SpecificOfferingsBuilderInterface;
+use CodeandoMexico\Sismomx\Core\Traits\Base\DatesHelper;
 
 /**
  * Class SpecificOfferingsBuilder
@@ -12,6 +13,7 @@ use CodeandoMexico\Sismomx\Core\Interfaces\Builders\SpecificOfferingsBuilderInte
  */
 class SpecificOfferingsBuilder extends BuilderAbstract implements SpecificOfferingsBuilderInterface
 {
+    use DatesHelper;
     /**
      * @var SpecificOfferingsDto
      */
@@ -34,14 +36,21 @@ class SpecificOfferingsBuilder extends BuilderAbstract implements SpecificOfferi
     {
         $this->builtable->id = $this->values->getValue(SpecificOfferingsDictionary::ID);
         $this->builtable->moreInformation = $this->values->getValue(SpecificOfferingsDictionary::MORE_INFORMATION);
-        $this->builtable->encodedKey = $this->values->getValue(SpecificOfferingsDictionary::ENCODED_KEY);
         $this->builtable->contact = $this->values->getValue(SpecificOfferingsDictionary::CONTACT);
         $this->builtable->notes = $this->values->getValue(SpecificOfferingsDictionary::NOTES);
         $this->builtable->expiresAt = $this->values->getValue(SpecificOfferingsDictionary::EXPIRES_AT);
         $this->builtable->offeringDetails = $this->values->getValue(SpecificOfferingsDictionary::OFFERING_DETAILS);
         $this->builtable->offeringFrom = $this->values->getValue(SpecificOfferingsDictionary::OFFERING_FROM);
-        $this->builtable->updatedAt = $this->values->getValue(SpecificOfferingsDictionary::UPDATED_AT);
-        $this->builtable->createdAt = $this->values->getValue(SpecificOfferingsDictionary::CREATED_AT);
+        $this->builtable->updatedAt = $this->stringToDate(
+            $this->values->getValue(SpecificOfferingsDictionary::UPDATED_AT),
+            'Y/d/m H:i'
+        );
+        $this->builtable->createdAt = $this->stringToDate(
+            $this->values->getValue(SpecificOfferingsDictionary::CREATED_AT),
+            'Y-m-d H:i:s',
+            'now'
+        );
+        $this->builtable->encodedKey = hash('sha256',json_encode($this->values->getValues()));
         return $this;
     }
 }

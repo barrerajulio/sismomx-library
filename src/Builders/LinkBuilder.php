@@ -5,6 +5,7 @@ use CodeandoMexico\Sismomx\Core\Abstracts\Builders\BuilderAbstract;
 use CodeandoMexico\Sismomx\Core\Dictionaries\GoogleSheetsApiV4\LinkDictionary;
 use CodeandoMexico\Sismomx\Core\Dtos\LinkDto;
 use CodeandoMexico\Sismomx\Core\Interfaces\Builders\LinkBuilderInterface;
+use CodeandoMexico\Sismomx\Core\Traits\Base\DatesHelper;
 
 /**
  * Class LinkBuilder
@@ -13,6 +14,7 @@ use CodeandoMexico\Sismomx\Core\Interfaces\Builders\LinkBuilderInterface;
  */
 class LinkBuilder extends BuilderAbstract implements LinkBuilderInterface
 {
+    use DatesHelper;
     /**
      * @var LinkDto
      */
@@ -36,8 +38,12 @@ class LinkBuilder extends BuilderAbstract implements LinkBuilderInterface
         $this->builtable->id = $this->values->getValue(LinkDictionary::ID);
         $this->builtable->description = $this->values->getValue(LinkDictionary::DESCRIPTION);
         $this->builtable->url = $this->values->getValue(LinkDictionary::URL);
-        $this->builtable->encodedKey = $this->values->getValue(LinkDictionary::ENCODED_KEY);
-        $this->builtable->createdAt = $this->values->getValue(LinkDictionary::CREATED_AT);
+        $this->builtable->createdAt = $this->stringToDate(
+            $this->values->getValue(LinkDictionary::CREATED_AT),
+            'Y-m-d H:i:s',
+            'now'
+        );
+        $this->builtable->encodedKey = hash('sha256',json_encode($this->values->getValues()));
         return $this;
     }
 }
