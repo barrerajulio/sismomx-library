@@ -10,8 +10,8 @@ use CodeandoMexico\Sismomx\Core\Repositories\Eloquent\SpecificOfferingRepository
 use Exception;
 
 /**
- * User: @fabianjuarezmx
- * Date: 9/23/17
+ * Class QueryService
+ * @package CodeandoMexico\Sismomx\Core\Services
  */
 class QueryService
 {
@@ -36,7 +36,7 @@ class QueryService
     {
         $data = [];
 
-        if (empty($requestData)) {
+        if (empty($requestData) === true) {
             foreach ($this->repositories as $repositoryPath) {
                 /** @var BaseRepository $repository */
                 $repository = app($repositoryPath);
@@ -69,11 +69,10 @@ class QueryService
      */
     private function getRepository($categoryFilter)
     {
-        if (!array_key_exists($categoryFilter, $this->repositories)) {
-            $msg = "No existe repositorio de consultas para la categoria " . $categoryFilter;
+        if (array_key_exists($categoryFilter, $this->repositories) === false) {
+            $msg = 'No existe repositorio de consultas para la categoria ' . $categoryFilter;
             throw new Exception($msg);
         }
-
         return $this->repositories[$categoryFilter];
     }
 }

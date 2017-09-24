@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
  */
 class BaseRepository
 {
+    const REQUEST_FILTER_INDEX = '';
     /**
      * Constante para indicar el límite a aplicar en las consultas a base de datos
      */
