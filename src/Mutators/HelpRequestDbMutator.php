@@ -30,19 +30,26 @@ class HelpRequestDbMutator implements \JsonSerializable
      */
     public function toArray()
     {
-       return [
-           HelpRequestDictionary::ENCODED_KEY => $this->dto->encodedKey,
-           HelpRequestDictionary::URGENCY_LEVEL => $this->dto->urgencyLevel,
-           HelpRequestDictionary::BRIGADE_REQUIRED => $this->dto->brigadeRequired,
-           HelpRequestDictionary::MOST_IMPORTANT_REQUIRED => $this->dto->mostImportantRequired,
-           HelpRequestDictionary::ADMITTED => $this->dto->address,
-           HelpRequestDictionary::NOT_REQUIRED => $this->dto->notRequired,
-           HelpRequestDictionary::ADDRESS => $this->dto->address,
-           HelpRequestDictionary::ZONE => $this->dto->zone,
-           HelpRequestDictionary::SOURCE => $this->dto->source,
-           HelpRequestDictionary::UPDATED_AT => $this->dto->updatedAt,
-           HelpRequestDictionary::CREATED_AT => $this->dto->createdAt,
-       ];
+        $payload = [
+            HelpRequestDictionary::ENCODED_KEY => $this->dto->encodedKey,
+            HelpRequestDictionary::URGENCY_LEVEL => $this->dto->urgencyLevel,
+            HelpRequestDictionary::BRIGADE_REQUIRED => $this->dto->brigadeRequired,
+            HelpRequestDictionary::MOST_IMPORTANT_REQUIRED => $this->dto->mostImportantRequired,
+            HelpRequestDictionary::ADMITTED => $this->dto->address,
+            HelpRequestDictionary::NOT_REQUIRED => $this->dto->notRequired,
+            HelpRequestDictionary::ADDRESS => $this->dto->address,
+            HelpRequestDictionary::ZONE => $this->dto->zone,
+            HelpRequestDictionary::SOURCE => $this->dto->source,
+            HelpRequestDictionary::UPDATED_AT => $this->dto->updatedAt,
+            HelpRequestDictionary::CREATED_AT => $this->dto->createdAt,
+        ];
+        if (empty(HelpRequestDictionary::CREATED_AT) === true) {
+            $payload[HelpRequestDictionary::CREATED_AT] = date('Y-m-d H:i:s');
+        }
+        if (empty($payload[HelpRequestDictionary::ENCODED_KEY]) === true) {
+            $payload[HelpRequestDictionary::ENCODED_KEY] = hash('sha256',json_encode($payload));
+        }
+        return $payload;
     }
 
     /**
