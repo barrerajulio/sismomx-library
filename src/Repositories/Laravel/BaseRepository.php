@@ -21,6 +21,11 @@ class BaseRepository
     const UNLIMITED = -1;
 
     /**
+     * @var Model
+     */
+    protected $model;
+
+    /**
      * @return Model
      */
     public function getModel()
