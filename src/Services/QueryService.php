@@ -7,6 +7,7 @@ use CodeandoMexico\Sismomx\Core\Repositories\Eloquent\CollectionCenterRepository
 use CodeandoMexico\Sismomx\Core\Repositories\Eloquent\HelpRequestRepository;
 use CodeandoMexico\Sismomx\Core\Repositories\Eloquent\LinkRepository;
 use CodeandoMexico\Sismomx\Core\Repositories\Eloquent\ShelterRepository;
+use CodeandoMexico\Sismomx\Core\Repositories\Eloquent\SpecificOfferingRepository;
 use Exception;
 
 /**
@@ -23,7 +24,8 @@ class QueryService
         CollectionCenterRepository::REQUEST_FILTER_INDEX => CollectionCenterRepository::class,
         HelpRequestRepository::REQUEST_FILTER_INDEX => HelpRequestRepository::class,
         ShelterRepository::REQUEST_FILTER_INDEX => ShelterRepository::class,
-        LinkRepository::REQUEST_FILTER_INDEX => LinkRepository::class
+        LinkRepository::REQUEST_FILTER_INDEX => LinkRepository::class,
+        SpecificOfferingRepository::REQUEST_FILTER_INDEX => SpecificOfferingRepository::class
     ];
 
     public function run(array $requestData)
