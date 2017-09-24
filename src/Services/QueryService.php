@@ -36,7 +36,6 @@ class QueryService
 
         if (empty($requestData)) {
             foreach ($this->repositories as $repositoryPath) {
-                $repositoryPath = $this->getRepository($repositoryPath);
                 /** @var BaseRepository $repository */
                 $repository = app($repositoryPath);
                 $result = $repository->findByAttributesRaw([], [], []);
