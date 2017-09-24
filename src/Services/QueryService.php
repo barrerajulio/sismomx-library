@@ -1,5 +1,4 @@
 <?php
-
 namespace CodeandoMexico\Sismomx\Core\Services;
 
 use CodeandoMexico\Sismomx\Core\Repositories\Eloquent\BaseRepository;
@@ -28,10 +27,13 @@ class QueryService
         SpecificOfferingRepository::REQUEST_FILTER_INDEX => SpecificOfferingRepository::class
     ];
 
+    /**
+     * @param array $requestData
+     * @return array
+     * @todo validar request, si no cumple estructura indicada no se deberia continuar
+     */
     public function run(array $requestData)
     {
-        // todo validar request, si no cumple estructura indicada no se deberia continuar
-
         $data = [];
 
         if (empty($requestData)) {

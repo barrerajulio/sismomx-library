@@ -1,12 +1,11 @@
 <?php
-
 namespace CodeandoMexico\Sismomx\Core\Repositories\Eloquent;
 
 use CodeandoMexico\Sismomx\Core\Models\Eloquent\CollectionCenter;
 
 /**
- * User: @fabianjuarezmx
- * Date: 9/23/17
+ * Class CollectionCenterRepository
+ * @package CodeandoMexico\Sismomx\Core\Repositories\Eloquent
  */
 class CollectionCenterRepository extends BaseRepository
 {

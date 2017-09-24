@@ -1,12 +1,11 @@
 <?php
-
 namespace CodeandoMexico\Sismomx\Core\Repositories\Eloquent;
 
 use CodeandoMexico\Sismomx\Core\Models\Eloquent\SpecificOffering;
 
 /**
- * User: @fabianjuarezmx
- * Date: 9/24/17
+ * Class SpecificOfferingRepository
+ * @package CodeandoMexico\Sismomx\Core\Repositories\Eloquent
  */
 class SpecificOfferingRepository extends BaseRepository
 {

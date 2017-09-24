@@ -1,12 +1,11 @@
 <?php
-
 namespace CodeandoMexico\Sismomx\Core\Models\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * User: @fabianjuarezmx
- * Date: 9/23/17
+ * Class Shelter
+ * @package CodeandoMexico\Sismomx\Core\Models\Eloquent
  */
 class Shelter extends Model
 {

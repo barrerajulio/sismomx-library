@@ -1,5 +1,4 @@
 <?php
-
 namespace CodeandoMexico\Sismomx\Core\Repositories\Eloquent;
 
 use Exception;
@@ -8,8 +7,8 @@ use Illuminate\Database\MySqlConnection;
 use Illuminate\Support\Facades\DB;
 
 /**
- * User: @fabianjuarezmx
- * Date: 9/23/17
+ * Class BaseRepository
+ * @package CodeandoMexico\Sismomx\Core\Repositories\Eloquent
  */
 class BaseRepository
 {

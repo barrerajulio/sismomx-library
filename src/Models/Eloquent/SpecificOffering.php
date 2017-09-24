@@ -1,12 +1,11 @@
 <?php
-
 namespace CodeandoMexico\Sismomx\Core\Models\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * User: @fabianjuarezmx
- * Date: 9/24/17
+ * Class SpecificOffering
+ * @package CodeandoMexico\Sismomx\Core\Models\Eloquent
  */
 class SpecificOffering extends Model
 {

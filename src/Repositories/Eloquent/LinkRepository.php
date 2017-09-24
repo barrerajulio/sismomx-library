@@ -1,12 +1,11 @@
 <?php
-
 namespace CodeandoMexico\Sismomx\Core\Repositories\Eloquent;
 
 use CodeandoMexico\Sismomx\Core\Models\Eloquent\Link;
 
 /**
- * User: @fabianjuarezmx
- * Date: 9/23/17
+ * Class LinkRepository
+ * @package CodeandoMexico\Sismomx\Core\Repositories\Eloquent
  */
 class LinkRepository extends BaseRepository
 {

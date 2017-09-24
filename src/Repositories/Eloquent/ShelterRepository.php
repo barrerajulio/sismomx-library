@@ -1,12 +1,11 @@
 <?php
-
 namespace CodeandoMexico\Sismomx\Core\Repositories\Eloquent;
 
 use CodeandoMexico\Sismomx\Core\Models\Eloquent\Shelter;
 
 /**
- * User: @fabianjuarezmx
- * Date: 9/23/17
+ * Class ShelterRepository
+ * @package CodeandoMexico\Sismomx\Core\Repositories\Eloquent
  */
 class ShelterRepository extends BaseRepository
 {

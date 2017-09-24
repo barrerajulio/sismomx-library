@@ -1,12 +1,11 @@
 <?php
-
 namespace CodeandoMexico\Sismomx\Core\Repositories\Eloquent;
 
 use CodeandoMexico\Sismomx\Core\Models\Eloquent\HelpRequest;
 
 /**
- * User: @fabianjuarezmx
- * Date: 9/23/17
+ * Class HelpRequestRepository
+ * @package CodeandoMexico\Sismomx\Core\Repositories\Eloquent
  */
 class HelpRequestRepository extends BaseRepository
 {
