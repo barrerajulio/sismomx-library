@@ -11,6 +11,11 @@ use CodeandoMexico\Sismomx\Core\Models\Eloquent\CollectionCenter;
 class CollectionCenterRepository extends BaseRepository
 {
     /**
+     * Indice enviado en la consulta del API para identificar el repositorio a donde se realizara la consulta
+     */
+    const REQUEST_FILTER_INDEX = 'centros';
+
+    /**
      * @var CollectionCenter
      */
     protected $model;
