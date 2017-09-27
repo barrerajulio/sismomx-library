@@ -77,12 +77,9 @@ class BaseRepository
                 return $rows->first()->id;
             }
         }
-
         $model = $this->model->newInstance();
         $model->fill($payload);
-
         $result = $model->save();
-
         $msg = '';
         if (!$result) {
             $msg .= ' Error al guardar | ' . json_encode($payload);

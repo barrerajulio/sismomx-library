@@ -2,6 +2,7 @@
 namespace CodeandoMexico\Sismomx\Core\Dtos;
 
 use CodeandoMexico\Sismomx\Core\Interfaces\Capabilities\BuiltableInterface;
+use CodeandoMexico\Sismomx\Core\Presenters\SpecificOfferingsPresenter;
 
 /**
  * Sheet `OFRECIMIENTOS ESPECÍFICOS`
@@ -74,4 +75,20 @@ class SpecificOfferingsDto implements BuiltableInterface
      * @var \DateTime
      */
     public $createdAt;
+
+    /**
+     * @var SpecificOfferingsPresenter
+     */
+    public $presenter;
+
+    /**
+     * SpecificOfferingsDto constructor.
+     * @Inject
+     * @param SpecificOfferingsPresenter $presenter
+     */
+    public function __construct(SpecificOfferingsPresenter $presenter)
+    {
+        $presenter->dto = $this;
+        $this->presenter = $presenter;
+    }
 }
