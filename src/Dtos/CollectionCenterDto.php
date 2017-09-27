@@ -2,6 +2,7 @@
 namespace CodeandoMexico\Sismomx\Core\Dtos;
 
 use CodeandoMexico\Sismomx\Core\Interfaces\Capabilities\BuiltableInterface;
+use CodeandoMexico\Sismomx\Core\Presenters\CollectionCenterPresenter;
 
 /**
  * Sheet `CENTROS DE ACOPIO`
@@ -72,4 +73,20 @@ class CollectionCenterDto implements BuiltableInterface
      * @var \DateTime
      */
     public $createdAt;
+
+    /**
+     * @var CollectionCenterPresenter
+     */
+    public $presenter;
+
+    /**
+     * CollectionCenterDto constructor.
+     * @Inject
+     * @param CollectionCenterPresenter $presenter
+     */
+    public function __construct(CollectionCenterPresenter $presenter)
+    {
+        $presenter->dto = $this;
+        $this->presenter = $presenter;
+    }
 }

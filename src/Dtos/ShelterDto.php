@@ -2,6 +2,7 @@
 namespace CodeandoMexico\Sismomx\Core\Dtos;
 
 use CodeandoMexico\Sismomx\Core\Interfaces\Capabilities\BuiltableInterface;
+use CodeandoMexico\Sismomx\Core\Presenters\ShelterPresenter;
 
 /**
  * Sheet `ALBERGUES`
@@ -62,4 +63,20 @@ class ShelterDto implements BuiltableInterface
      * @var \DateTime
      */
     public $createdAt;
+
+    /**
+     * @var ShelterPresenter
+     */
+    public $presenter;
+
+    /**
+     * ShelterDto constructor.
+     * @Inject
+     * @param ShelterPresenter $presenter
+     */
+    public function __construct(ShelterPresenter $presenter)
+    {
+        $presenter->dto = $this;
+        $this->presenter = $presenter;
+    }
 }

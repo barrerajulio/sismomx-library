@@ -2,6 +2,7 @@
 namespace CodeandoMexico\Sismomx\Core\Dtos;
 
 use CodeandoMexico\Sismomx\Core\Interfaces\Capabilities\BuiltableInterface;
+use CodeandoMexico\Sismomx\Core\Presenters\HelpRequestPresenter;
 
 /**
  * Sheet `URGENCIAS Y SOLICITUDES POR ZON`
@@ -72,4 +73,20 @@ class HelpRequestDto implements BuiltableInterface
      * @var \DateTime
      */
     public $createdAt;
+
+    /**
+     * @var HelpRequestPresenter
+     */
+    public $presenter;
+
+    /**
+     * HelpRequestDto constructor.
+     * @Inject
+     * @param HelpRequestPresenter $presenter
+     */
+    public function __construct(HelpRequestPresenter $presenter)
+    {
+        $presenter->dto = $this;
+        $this->presenter = $presenter;
+    }
 }
