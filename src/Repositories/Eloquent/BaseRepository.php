@@ -70,10 +70,10 @@ class BaseRepository
      */
     public function storeSingleRowFromArray(array $payload)
     {
-        if (array_key_exists('encodedkey', $payload) === true) {
-            $encodedKey = $payload['encodedkey'];
-            $rows = $this->getModel()->where('encodedkey', $encodedKey)->get();
-            if (!empty($rows->all())) {
+        if (array_key_exists('encoded_key', $payload) === true) {
+            $encodedKey = $payload['encoded_key'];
+            $rows = $this->getModel()->where('encoded_key', $encodedKey)->get();
+            if (empty($rows->all()) === false) {
                 return $rows->first()->id;
             }
         }
