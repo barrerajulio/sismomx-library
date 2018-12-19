@@ -70,11 +70,16 @@ class BaseRepository
      */
     public function storeSingleRowFromArray(array $payload)
     {
+        if (array_key_exists('encoded_key', $payload) === true) {
+            $encodedKey = $payload['encoded_key'];
+            $rows = $this->getModel()->where('encoded_key', $encodedKey)->get();
+            if (empty($rows->all()) === false) {
+                return $rows->first()->id;
+            }
+        }
         $model = $this->model->newInstance();
         $model->fill($payload);
-
         $result = $model->save();
-
         $msg = '';
         if (!$result) {
             $msg .= ' Error al guardar | ' . json_encode($payload);

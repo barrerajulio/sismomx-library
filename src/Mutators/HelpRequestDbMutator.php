@@ -35,7 +35,7 @@ class HelpRequestDbMutator implements \JsonSerializable
             HelpRequestDictionary::URGENCY_LEVEL => $this->dto->urgencyLevel,
             HelpRequestDictionary::BRIGADE_REQUIRED => $this->dto->brigadeRequired,
             HelpRequestDictionary::MOST_IMPORTANT_REQUIRED => $this->dto->mostImportantRequired,
-            HelpRequestDictionary::ADMITTED => $this->dto->address,
+            HelpRequestDictionary::ADMITTED => $this->dto->admitted,
             HelpRequestDictionary::NOT_REQUIRED => $this->dto->notRequired,
             HelpRequestDictionary::ADDRESS => $this->dto->address,
             HelpRequestDictionary::ZONE => $this->dto->zone,

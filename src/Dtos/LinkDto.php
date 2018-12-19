@@ -2,6 +2,7 @@
 namespace CodeandoMexico\Sismomx\Core\Dtos;
 
 use CodeandoMexico\Sismomx\Core\Interfaces\Capabilities\BuiltableInterface;
+use CodeandoMexico\Sismomx\Core\Presenters\LinkPresenter;
 
 /**
  * Sheet `OTROS ENLACES`
@@ -37,4 +38,20 @@ class LinkDto implements BuiltableInterface
      * @var \DateTime
      */
     public $createdAt;
+
+    /**
+     * @var LinkPresenter
+     */
+    public $presenter;
+
+    /**
+     * LinkDto constructor.
+     * @Inject
+     * @param LinkPresenter $presenter
+     */
+    public function __construct(LinkPresenter $presenter)
+    {
+        $presenter->dto = $this;
+        $this->presenter = $presenter;
+    }
 }
